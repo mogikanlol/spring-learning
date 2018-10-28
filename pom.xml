@@ -11,6 +11,10 @@
 
     <properties>
         <spring.version>5.1.1.RELEASE</spring.version>
+<<<<<<< HEAD
+=======
+        <groovy.version>2.5.3</groovy.version>
+>>>>>>> Add groovy config
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
@@ -29,6 +33,17 @@
             <version>${spring.version}</version>
         </dependency>
 
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>${groovy.version}</version>
+            <type>pom</type>
+        </dependency>
+
+
+>>>>>>> Add groovy config
     </dependencies>
 
 </project>
