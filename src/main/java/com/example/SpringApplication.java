@@ -9,7 +9,7 @@ public class SpringApplication {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("ctx.xml");
 
         Player player = ctx.getBean("player", Player.class);
-        Player factoryPlayer = ctx.getBean("factory-player", Player.class);
+        Player factoryPlayer = ctx.getBean("factoryPlayer", Player.class);
 
         System.out.println(player);
         System.out.println(factoryPlayer);
