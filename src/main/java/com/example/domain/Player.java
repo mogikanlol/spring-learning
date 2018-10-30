@@ -2,14 +2,27 @@ package com.example.domain;
 
 public class Player {
 
-    private final String name;
+    private Long id;
+
+    private String name;
 
     @InjectRandomLevel(min = 1, max = 3)
     private int level;
 
+    public Player() {
+
+    }
+
     public Player(String name) {
         this.name = name;
-        this.level = 0;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -27,7 +40,8 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", level=" + level +
                 '}';
     }
