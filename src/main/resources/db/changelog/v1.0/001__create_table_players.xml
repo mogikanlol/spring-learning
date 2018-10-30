@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet author="Dmitry_Nikolaev" id="1029201800">
+        <createTable tableName="PLAYERS">
+            <column name="ID"
+                    type="java.sql.Types.BIGINT(20)"
+                    autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"/>
+            </column>
+
+            <column name="NAME"
+                    type="java.sql.Types.VARCHAR(255)"/>
+            <column name="LEVEL"
+                    type="java.sql.Types.INTEGER"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
