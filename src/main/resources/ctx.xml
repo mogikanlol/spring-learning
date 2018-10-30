@@ -5,6 +5,7 @@
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <import resource="ctx-one.xml"/>
+    <import resource="database-conf.xml"/>
 
     <bean class="com.example.domain.InjectRandomLevelAnnotationBeanPostProcessor"/>
 
@@ -13,4 +14,20 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <property name="level" value="5"/>
     </bean>
 
+
+    <!--Service Layer-->
+    <bean id="playerService" class="com.example.service.PlayerServiceImpl">
+        <constructor-arg ref="playerMapper"/>
+    </bean>
+
+    <!--Dao Layer-->
+    <bean id="playerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.example.persistence.PlayerMapper"/>
+    </bean>
+
+    <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
+        <property name="changeLog" value="classpath:db/changelog/db_changelog_master.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 </beans>
