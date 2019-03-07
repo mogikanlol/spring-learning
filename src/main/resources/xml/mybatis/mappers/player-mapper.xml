@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.persistence.PlayerMapper">
+    <insert id="create" parameterType="com.example.domain.Player">
+        INSERT INTO PLAYERS (NAME, LEVEL)
+        VALUES (#{name}, #{level})
+    </insert>
+
+    <select id="findByName" parameterType="String" resultType="com.example.domain.Player">
+        SELECT ID as id
+        , NAME as name
+        , LEVEL as level
+        FROM PLAYERS t
+        WHERE t.NAME = #{name}
+    </select>
+
+    <delete id="delete" parameterType="com.example.domain.Player">
+        DELETE FROM PLAYERS
+        WHERE PLAYERS.ID = #{id}
+    </delete>
+</mapper>
