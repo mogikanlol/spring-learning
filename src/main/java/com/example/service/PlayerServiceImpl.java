@@ -1,15 +1,18 @@
 package com.example.service;
 
 import com.example.domain.Player;
-import com.example.persistence.PlayerMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.persistence.PlayerMapperGroovy;
 import org.springframework.stereotype.Service;
 
-@Service(value = "playerService")
+@Service("playerService")
 public class PlayerServiceImpl implements PlayerService {
 
-    @Autowired
-    private PlayerMapper playerMapper;
+
+    private final PlayerMapperGroovy playerMapper;
+
+    public PlayerServiceImpl(PlayerMapperGroovy playerMapper) {
+        this.playerMapper = playerMapper;
+    }
 
     @Override
     public void createPlayer(Player player) {

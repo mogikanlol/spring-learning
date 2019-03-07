@@ -23,7 +23,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
     <!--Dao Layer-->
     <bean id="playerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-        <property name="mapperInterface" value="com.example.persistence.PlayerMapper"/>
+        <property name="mapperInterface" value="com.example.persistence.PlayerMapperGroovy"/>
     </bean>
 
     <bean id="liquibase" class="liquibase.integration.spring.SpringLiquibase">
