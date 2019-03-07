@@ -9,7 +9,7 @@ beans {
     mybatis.scan('base-package': 'com.example.persistence')
 
     dataSource(DriverManagerDataSource) {
-        url = "jdbc:h2:./h2-db/db"
+        url = "jdbc:h2:mem:db;DB_CLOSE_DELAY=-1"
         driverClassName = "org.h2.Driver"
         username = "sa"
         password = ""
