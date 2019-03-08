@@ -16,7 +16,7 @@ public class SpringApplication {
         System.out.println(player);
         System.out.println(factoryPlayer);
 
-        PlayerService playerService = ctx.getBean("playerService", PlayerService.class);
+        PlayerService playerService = ctx.getBean(PlayerService.class);
 
         playerService.createPlayer(player);
         System.out.println(playerService.getPlayer(player.getName()));

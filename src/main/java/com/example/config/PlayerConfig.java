@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class PlayerConfig {
     @Bean
-    Player player() {
+    public Player player() {
         return new Player("Player");
     }
 
-    @Bean()
-    Player factoryPlayer() {
+    @Bean
+    public Player factoryPlayer() {
         return PlayerFactory.createPlayer();
     }
 

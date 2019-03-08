@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-2019-03-06 12:41:26 jdbc[3]: exception
-=======
-2019-03-07 13:09:20 jdbc[3]: exception
->>>>>>> config/groovy
-org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
-SELECT COUNT(*) FROM PUBLIC.DATABASECHANGELOGLOCK [42102-197]

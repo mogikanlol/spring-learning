@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 
 @Mapper
-interface PlayerMapperGroovy {
+interface PlayerMapperGroovy extends PlayerMapper {
 
     @Insert('''
     INSERT INTO PLAYERS (NAME, LEVEL) 

@@ -14,17 +14,17 @@ import javax.sql.DataSource;
 public class DatabaseConfig {
 
     @Bean
-    DataSource dataSource() {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:./h2-db/db");
+        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
         dataSource.setUsername("sa");
         return dataSource;
     }
 
 
     @Bean
-    SqlSessionFactoryBean sqlSessionFactoryBean() {
+    public SqlSessionFactoryBean sqlSessionFactoryBean() {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
         return sqlSessionFactoryBean;
@@ -32,7 +32,7 @@ public class DatabaseConfig {
 
 
     @Bean
-    SpringLiquibase springLiquibase() {
+    public SpringLiquibase springLiquibase() {
         SpringLiquibase springLiquibase = new SpringLiquibase();
         springLiquibase.setChangeLog("classpath:db/changelog/db_changelog_master.xml");
         springLiquibase.setDataSource(dataSource());
