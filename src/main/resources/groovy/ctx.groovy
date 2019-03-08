@@ -4,11 +4,11 @@ import com.example.domain.InjectRandomLevelAnnotationBeanPostProcessor
 import com.example.domain.Player
 
 beans {
-    importBeans("ctx-one.groovy")
-    importBeans("database.groovy")
+    importBeans "groovy/ctx-one.groovy"
+    importBeans "groovy/database.groovy"
 
     xmlns([ctx:'http://www.springframework.org/schema/context'])
-    groovy.ctx.'component-scan'('base-package': 'com.example.service')
+    ctx.'component-scan'('base-package': 'com.example.service')
 
     player(Player, "Player")
 
