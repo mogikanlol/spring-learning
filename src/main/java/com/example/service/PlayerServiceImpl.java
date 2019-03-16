@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PlayerServiceImpl implements PlayerService {
@@ -34,5 +35,22 @@ public class PlayerServiceImpl implements PlayerService {
     public void deletePlayer(Player player) {
         logger.info("Deleting player = {}", player);
         playerMapper.delete(player);
+    }
+
+    @Transactional
+    @Override
+    public void testTransaction() {
+        String name = "transcational";
+        logger.info("Check that player does not exist. Expect null, but actual is = {}", String.valueOf(playerMapper.findByName(name)));
+
+        Player player = new Player();
+        player.setName(name);
+        player.setLevel(100500);
+
+        this.createPlayer(player);
+
+        this.getPlayer(name);
+
+        throw new RuntimeException();
     }
 }

@@ -9,4 +9,6 @@ public interface PlayerService {
     Player getPlayer(String name);
 
     void deletePlayer(Player player);
+
+    void testTransaction();
 }
