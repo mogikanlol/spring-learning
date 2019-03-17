@@ -1,7 +1,7 @@
 package com.example.service;
 
 import com.example.domain.Player;
-import com.example.persistence.PlayerMapper;
+import com.example.persistence.PlayerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,35 +13,35 @@ public class PlayerServiceImpl implements PlayerService {
 
     private static final Logger logger = LoggerFactory.getLogger(PlayerServiceImpl.class);
 
-    private final PlayerMapper playerMapper;
+    private final PlayerRepository playerRepository;
 
-    public PlayerServiceImpl(@Qualifier("playerMapperJava") PlayerMapper playerMapper) {
-        this.playerMapper = playerMapper;
+    public PlayerServiceImpl(@Qualifier("playerRepositoryJpa") PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
     }
 
     @Override
     public void createPlayer(Player player) {
         logger.info("Creating player = {}", player);
-        playerMapper.create(player);
+        playerRepository.create(player);
     }
 
     @Override
     public Player getPlayer(String name) {
         logger.info("Finding player by name = {}", name);
-        return playerMapper.findByName(name);
+        return playerRepository.findByName(name);
     }
 
     @Override
     public void deletePlayer(Player player) {
         logger.info("Deleting player = {}", player);
-        playerMapper.delete(player);
+        playerRepository.delete(player);
     }
 
     @Transactional
     @Override
     public void testTransaction() {
-        String name = "transcational";
-        logger.info("Check that player does not exist. Expect null, but actual is = {}", String.valueOf(playerMapper.findByName(name)));
+        String name = "transactional";
+        logger.info("Check that player does not exist. Expect null, but actual is = {}", String.valueOf(playerRepository.findByName(name)));
 
         Player player = new Player();
         player.setName(name);

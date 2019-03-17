@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.persistence.PlayerMapper">
+<mapper namespace="com.example.persistence.PlayerRepository">
     <insert id="create" parameterType="com.example.domain.Player">
         INSERT INTO PLAYERS (NAME, LEVEL)
         VALUES (#{name}, #{level})

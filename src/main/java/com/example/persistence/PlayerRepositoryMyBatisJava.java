@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface PlayerMapperJava extends PlayerMapper {
+public interface PlayerRepositoryMyBatisJava extends PlayerRepository {
 
     @Insert("INSERT INTO PLAYERS (NAME, LEVEL) VALUES (#{name}, #{level})")
     void create(Player player);

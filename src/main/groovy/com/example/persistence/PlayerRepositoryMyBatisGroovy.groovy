@@ -5,9 +5,11 @@ import org.apache.ibatis.annotations.Delete
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
+import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.context.annotation.Primary
 
 @Mapper
-interface PlayerMapperGroovy extends PlayerMapper {
+interface PlayerRepositoryMyBatisGroovy extends PlayerRepository {
 
     @Insert('''
     INSERT INTO PLAYERS (NAME, LEVEL) 

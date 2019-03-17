@@ -39,7 +39,7 @@ public class SpringApplication {
             e.printStackTrace();
         }
 
-        System.out.println("Expect the player is null, but actual is = " + playerService.getPlayer("transcational"));
+        System.out.println("Expect the player is null, but actual is = " + playerService.getPlayer("transactional"));
         System.out.println("---Testing Transaction---");
     }
 }

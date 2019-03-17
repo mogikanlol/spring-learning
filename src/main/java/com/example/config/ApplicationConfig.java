@@ -8,7 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import(value = {PlayerConfig.class, DatabaseConfig.class})
+@Import(value = {
+        PlayerConfig.class
+        , DataJpaConfig.class
+//        , MyBatisConfig.class
+})
 @ComponentScan(basePackages = "com.example.service")
 public class ApplicationConfig {
 
