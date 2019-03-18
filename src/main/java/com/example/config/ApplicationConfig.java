@@ -27,7 +27,13 @@ public class ApplicationConfig {
 
     @PostConstruct
     public void setActiveProfiles() {
-        configurableEnvironment.setActiveProfiles(env.getProperty("spring.profiles.active"));
+        String activeProfile = env.getProperty("spring.profiles.active");
+
+        if (activeProfile == null) {
+            activeProfile = "jpa";
+        }
+
+        configurableEnvironment.setActiveProfiles(activeProfile);
     }
 
     @Bean
