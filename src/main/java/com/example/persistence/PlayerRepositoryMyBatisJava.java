@@ -6,8 +6,10 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.context.annotation.Primary;
 
 @Mapper
+@Primary
 public interface PlayerRepositoryMyBatisJava extends PlayerRepository {
 
     @Insert("INSERT INTO PLAYERS (NAME, LEVEL) VALUES (#{name}, #{level})")

@@ -15,7 +15,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
 
-    public PlayerServiceImpl(@Qualifier("playerRepositoryJpa") PlayerRepository playerRepository) {
+    public PlayerServiceImpl(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
 
