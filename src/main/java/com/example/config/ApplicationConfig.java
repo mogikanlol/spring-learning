@@ -9,12 +9,13 @@ import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 
+//https://stackoverflow.com/questions/26676782/when-use-abstractannotationconfigdispatcherservletinitializer-and-webapplication
 @PropertySource("classpath:application.properties")
 @Configuration
 @Import(value = {
-        PlayerConfig.class
-        , DataJpaConfig.class
-        , MyBatisConfig.class
+        PlayerConfig.class,
+        DataJpaConfig.class,
+        MyBatisConfig.class
 })
 @ComponentScan(basePackages = "com.example.service")
 public class ApplicationConfig {
